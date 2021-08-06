@@ -21,4 +21,15 @@ Rails.application.routes.draw do
   patch "/groups/:id" => "groups#update"
   #delete existing group
   delete "/groups/:id" => "groups#destroy"
+
+  #show all joined_groups
+  get "/joined_groups" => "joined_groups#index"
+  #show one specific joined_groups
+  get "/joined_groups/:id" => "joined_groups#show"
+  #make a new joined_groups
+  post "/joined_groups" => "joined_groups#create"
+  #update currently existing joined_groups
+  patch "/joined_groups/:id" => "joined_groups#update"
+  #delete existing joined_groups
+  delete "/joined_groups/:id" => "joined_groups#destroy"
 end
