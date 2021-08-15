@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
   #show all users
   get "/users" => "users#index"
   #show one specific user
@@ -32,4 +33,6 @@ Rails.application.routes.draw do
   patch "/joined_groups/:id" => "joined_groups#update"
   #delete existing joined_groups
   delete "/joined_groups/:id" => "joined_groups#destroy"
+
+  post "/sessions" => "sessions#create"
 end

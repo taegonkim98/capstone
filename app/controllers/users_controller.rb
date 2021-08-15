@@ -11,10 +11,13 @@ class UsersController < ApplicationController
       zipcode: params[:zipcode],
       gender: params[:gender],
       school: params[:school],
-      password_digest: params[:password_digest],
+      password: params[:password],
     )
-    user.save
-    render json: user.as_json
+    if user.save
+      render json: { message: "User created successfully" }, status: :created
+    else
+      render json: { errors: user.errors.full_messages }, status: :bad_request
+    end
   end
 
   def show
@@ -29,7 +32,7 @@ class UsersController < ApplicationController
     user.zipcode = params[:zipcode] || user.zipcode
     user.gender = params[:gender] || user.gender
     user.school = params[:school] || user.school
-    user.password_digest = params[:password_digest] || user.password_digest
+    user.password = params[:password] || user.password
     user.save
     render json: user.as_json
   end
