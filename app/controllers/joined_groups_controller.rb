@@ -1,13 +1,13 @@
 class JoinedGroupsController < ApplicationController
   def index
     joined_group = JoinedGroup.all
-    render json: joined_group.as_json
+    render json: joined_group
   end
 
   def create
     joined_group = JoinedGroup.new(
       status: params[:status],
-      user_id: params[:user_id],
+      user_id: current_user.id,
       group_id: params[:group_id],
     )
     joined_group.save

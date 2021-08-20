@@ -10,8 +10,10 @@ class GroupsController < ApplicationController
       max_students: params[:max_students],
       zipcode: params[:zipcode],
       subject: params[:subject],
+      name: params[:name],
+      description: params[:description],
     )
-    group.save!
+    group.save
     render json: group.as_json
   end
 
@@ -25,6 +27,8 @@ class GroupsController < ApplicationController
     group.user_id = params[:user_id] || group.user_id
     group.max_students = params[:max_students] || group.max_students
     group.zipcode = params[:zipcode] || group.zipcode
+    group.name = params[:name] || group.name
+    group.description = params[:description] || group.description
     group.subject = params[:subject] || group.subject
     group.save
     render json: group.as_json
