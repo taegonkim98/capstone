@@ -1,6 +1,6 @@
 class JoinedGroupsController < ApplicationController
   def index
-    joined_group = JoinedGroup.all
+    joined_group = JoinedGroup.where(status: "joined", user_id: current_user.id)
     render json: joined_group
   end
 

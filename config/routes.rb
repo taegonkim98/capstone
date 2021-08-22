@@ -34,5 +34,11 @@ Rails.application.routes.draw do
   #delete existing joined_groups
   delete "/joined_groups/:id" => "joined_groups#destroy"
 
+  #user signup
   post "/sessions" => "sessions#create"
+
+  #index action for chats
+  get "/messages" => "messages#index"
+  #create message/chat
+  post "/messages" => "messages#create"
 end
