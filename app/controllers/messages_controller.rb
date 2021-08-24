@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   def index
     messages = Message.where(group_id: params[:group_id])
-    render json: messages.as_json
+    render json: messages
   end
 
   def create
@@ -11,6 +11,6 @@ class MessagesController < ApplicationController
       text: params[:text],
     )
     message.save
-    render json: message.as_json
+    render json: message
   end
 end

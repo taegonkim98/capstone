@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
 
   def create
     group = Group.new(
-      user_id: params[:user_id],
+      user_id: current_user.id,
       max_students: params[:max_students],
       zipcode: params[:zipcode],
       subject: params[:subject],
